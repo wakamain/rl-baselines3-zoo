@@ -4,6 +4,7 @@ import gymnasium as gym
 from gymnasium.envs.registration import register
 
 from rl_zoo3.wrappers import MaskVelocityWrapper
+from ml_trade import train_env
 
 try:
     import pybullet_envs_gymnasium
@@ -45,6 +46,10 @@ try:
 except ImportError:
     pass
 
+try:
+    import train_env
+except ImportError:
+    pass
 
 # Register no vel envs
 def create_no_vel_env(env_id: str) -> Callable[[Optional[str]], gym.Env]:
